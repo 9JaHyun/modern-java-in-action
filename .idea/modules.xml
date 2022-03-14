@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/_11_Optional/_11_Optional.iml" filepath="$PROJECT_DIR$/_11_Optional/_11_Optional.iml" />
       <module fileurl="file://$PROJECT_DIR$/_13_default_method/_13_default_method.iml" filepath="$PROJECT_DIR$/_13_default_method/_13_default_method.iml" />
       <module fileurl="file://$PROJECT_DIR$/_15_CompletableFuture/_15_CompletableFuture.iml" filepath="$PROJECT_DIR$/_15_CompletableFuture/_15_CompletableFuture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_17_RX_JAVA/_17_RX_JAVA.iml" filepath="$PROJECT_DIR$/_17_RX_JAVA/_17_RX_JAVA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_17_Reactive_Programming/_17_Reactive_Programming.iml" filepath="$PROJECT_DIR$/_17_Reactive_Programming/_17_Reactive_Programming.iml" />
     </modules>
   </component>
 </project>

@@ -5,12 +5,14 @@ import _05_CompletableFuture.shop.improvedShop.Discount.Code;
 public class Quote {
 
     private final String shopName;
+    private final String product;
     private final double price;
     private final Code discountCode;
 
-    public Quote(String shopName, double price,
+    public Quote(String shopName, String product, double price,
           Code discountCode) {
         this.shopName = shopName;
+        this.product = product;
         this.price = price;
         this.discountCode = discountCode;
     }
@@ -18,9 +20,10 @@ public class Quote {
     public static Quote parse(String s) {
         String[] split = s.split(":");
         String shopName = split[0];
-        double price = Double.parseDouble(split[1]);
-        Code discountCode = Code.valueOf(split[2]);
-        return new Quote(shopName, price, discountCode);
+        String product = split[1];
+        double price = Double.parseDouble(split[2]);
+        Code discountCode = Code.valueOf(split[3]);
+        return new Quote(shopName, product, price, discountCode);
     }
 
     public String getShopName() {
@@ -33,5 +36,9 @@ public class Quote {
 
     public Code getDiscountCode() {
         return discountCode;
+    }
+
+    public String getProduct() {
+        return product;
     }
 }

@@ -6,6 +6,7 @@ import java.util.Random;
 public class Shop {
 
     private String name;
+    private static Random random = new Random();
 
     public Shop(String name) {
         this.name = name;
@@ -23,14 +24,25 @@ public class Shop {
         }
     }
 
-    public String getPrice(String product) {
+    // ShopV6을 위한 randomDelay()
+    private static void randomDelay() {
+        int delayTime = 500 + random.nextInt(2000);
+        try {
+            Thread.sleep(delayTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public String getPrice(String shopName, String product) {
         double price = calculatePrice(product);
         Code code = Code.values()[new Random().nextInt(Code.values().length)];
-        return "%s:%.2f:%s".formatted(product, price, code);
+        return "%s:%s:%.2f:%s".formatted(shopName, product, price, code);
     }
 
     private double calculatePrice(String product) {
-        delay();
+        randomDelay();
         return new Random().nextDouble() * product.charAt(0) + product.charAt(1);
     }
 }

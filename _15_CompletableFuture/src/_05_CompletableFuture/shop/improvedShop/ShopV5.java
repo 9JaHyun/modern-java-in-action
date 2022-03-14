@@ -1,4 +1,4 @@
-package improvedShop;
+package _05_CompletableFuture.shop.improvedShop;
 
 import _05_CompletableFuture.shop.improvedShop.Discount;
 import _05_CompletableFuture.shop.improvedShop.Quote;
@@ -30,7 +30,7 @@ public class ShopV5 {
     // 순차적 방식으로 처리
     private List<String> findPricesV1(List<Shop> shops, String product) {
         return shops.stream()
-              .map(shop -> shop.getPrice(product))
+              .map(shop -> shop.getPrice(shop.getName(), product))
               .map(Quote::parse)
               .map(Discount::applyDiscount)
               .collect(Collectors.toList());
@@ -39,7 +39,7 @@ public class ShopV5 {
     // 동기 작업을 추가해주자 v1과 10배 차이
     private List<String> findPricesV2(List<Shop> shops, String product) {
         List<CompletableFuture<String>> futures = shops.stream()
-              .map(shop -> CompletableFuture.supplyAsync(() -> shop.getPrice(product),
+              .map(shop -> CompletableFuture.supplyAsync(() -> shop.getPrice(shop.getName(), product),
                     makeCustomExecutor(shops)))
               // thenApply() : 여기서는 굳이 원격 서비스나 I/O가 없기 때문에 지연 없이 동작 수행
               // 그래서 딱히 CompletableFuture가 끝날 때까지 블록하는 작업이 없는 thenApply() 사용
